@@ -1,12 +1,14 @@
-import { Controller, Get } from '@nestjs/common';
-import { AppService } from './app.service';
+import { Controller } from '@nestjs/common';
+import { Get } from '@nestjs/common/decorators';
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {}
-
   @Get()
-  getHello(): string {
-    return this.appService.getHello();
+  getUser() {
+    return { name: 'mukesh', email: 'mukesh@gmail.com' };
+  }
+  @Get('/user')
+  getUser1() {
+    return { name: '111111', email: 'mukesh@gmail.com' };
   }
 }
